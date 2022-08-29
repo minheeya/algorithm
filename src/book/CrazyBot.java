@@ -49,8 +49,8 @@ public class CrazyBot {
             // already visited or movePro is zero
             if (visited[nx][ny] || movePro[i] == 0) continue;
 
+            visited[nx][ny] = true;
             run(nx, ny, n - 1, culProb * nProb);
-
             visited[nx][ny] = false;
         }
     }
