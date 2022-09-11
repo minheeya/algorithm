@@ -5,9 +5,9 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
-class point {
+class MiroPoint {
     int x, y, order;
-    point(int x, int y, int order) { this.x = x; this.y = y; this.order = order; }
+    MiroPoint(int x, int y, int order) { this.x = x; this.y = y; this.order = order; }
 }
 
 public class Miro {
@@ -18,7 +18,7 @@ public class Miro {
     static char[][] maze;
     static int[] moveRow;
     static int[] moveCol;
-    static Queue<point> q = new LinkedList<>();
+    static Queue<MiroPoint> q = new LinkedList<>();
 
     public static void main(String args[]) {
 
@@ -44,7 +44,7 @@ public class Miro {
         int startCol = sc.nextInt();
         maze[startRow][startCol] = 'X';
         cntOrder++;
-        q.add(new point(startRow, startCol, 0));
+        q.add(new MiroPoint(startRow, startCol, 0));
 
         m   = sc.nextInt();
         moveRow = new int[m];
@@ -60,7 +60,7 @@ public class Miro {
         // start searchMiro
         int maxOrder = 0;
         while (!q.isEmpty()) {
-            point cul = q.poll();
+            MiroPoint cul = q.poll();
             searchMiro(cul.x, cul.y, cul.order);
             maxOrder = Math.max(maxOrder, cul.order);
         }
@@ -81,7 +81,7 @@ public class Miro {
 
             maze[nx][ny] = 'X';
             cntOrder++;
-            q.add(new point(nx, ny, order + 1));
+            q.add(new MiroPoint(nx, ny, order + 1));
         }
     }
 }
