@@ -34,7 +34,7 @@ public class BadNeighbors {
 
         if (i == n) {
             maxDonation = Math.max(maxDonation, sum);
-            return ;
+            return;
         }
 
 
@@ -51,7 +51,7 @@ public class BadNeighbors {
         dfs(i + 1, sum + donations[i]);
         visited[i] = false;
 
-        return ;
+        return;
     }
 
 }
